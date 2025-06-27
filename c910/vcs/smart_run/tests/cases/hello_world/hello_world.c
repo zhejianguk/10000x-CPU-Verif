@@ -18,8 +18,8 @@ int main (void)
 {
 
 //Section 1: Hello World!
-  printf("\nHello Friend!\n");
-  printf("Welcome to T-HEAD World!\n");
+  printf("\nHello Southeast University!\n");
+  printf("Welcome to 10000x CPU Verification!\n");
 
 //Section 2: Embeded ASM in C 
   int a;
