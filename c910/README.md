@@ -167,8 +167,8 @@ xwave -wdb c910.xvcf
 3. **P2E FPGA Verification**:
    ```bash
    # Copy generated patterns
-   cp ./vcs/smart_run/work/data.pat /p2e/
-   cp ./vcs/smart_run/work/inst.pat /p2e/
+   cp ./vcs/smart_run/work/data.pat ./p2e/rtl_tb
+   cp ./vcs/smart_run/work/inst.pat ./p2e/rtl_tb
    
    # Run on FPGA
    cd p2e/ && ./p2e.csh
