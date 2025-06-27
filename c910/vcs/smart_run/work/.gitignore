@@ -1,0 +1,22 @@
+*log
+csrc/*
+# VCS simulation files
+simv
+simv.daidir/*
+*.daidir/*
+# Pattern files
+*.pat
+# Generated binaries and object files  
+*.elf
+*.hex
+*.obj
+*.o
+*.so
+*.a
+# Database files
+*.sdb
+*.db
+*.kdb
+# Build artifacts
+case.pat
+inst.pat
