@@ -1,0 +1,20 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/public/yifanqu/c910/smart_run/work
+SystemC=FALSE
+UUM=FALSE
+KDB=TRUE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+TOP=ct_spsram_1024x128 ct_spsram_1024x144 ct_spsram_1024x32 ct_spsram_1024x59 ct_spsram_1024x92 ct_spsram_128x104 ct_spsram_128x144 ct_spsram_16384x128 ct_spsram_2048x128 ct_spsram_2048x144 ct_spsram_2048x59 ct_spsram_2048x88 ct_spsram_256x100 ct_spsram_256x144 ct_spsram_256x52 ct_spsram_256x54 ct_spsram_256x59 ct_spsram_256x7 ct_spsram_32768x128 ct_spsram_4096x128 ct_spsram_4096x144 ct_spsram_4096x32 ct_spsram_4096x84 ct_spsram_64x108 ct_spsram_65536x128 ct_spsram_8192x32 mp_top_golden_port top_golden_port tb 
+OPTION=-ssv -ssy 
+ELAB_OPTION=-ssv -ssy 
+ELAB=TRUE
+SIMV_WRAPPER=FALSE
+[vcs]
+RUN_ELABCOM=unset TURBO_LOG_DIR ;\rm -rf simv.daidir/elabcomLog ;/nfs/tools/softwares/synopsys/installed_new/vcs-mx/O-2018.09-SP2/linux64/bin/elabcom -logdir simv.daidir/elabcomLog  -simvdaidir simv.daidir  -lib simv.daidir/work  -saveLevel  -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -top 'ct_spsram_1024x128 ct_spsram_1024x144 ct_spsram_1024x32 ct_spsram_1024x59 ct_spsram_1024x92 ct_spsram_128x104 ct_spsram_128x144 ct_spsram_16384x128 ct_spsram_2048x128 ct_spsram_2048x144 ct_spsram_2048x59 ct_spsram_2048x88 ct_spsram_256x100 ct_spsram_256x144 ct_spsram_256x52 ct_spsram_256x54 ct_spsram_256x59 ct_spsram_256x7 ct_spsram_32768x128 ct_spsram_4096x128 ct_spsram_4096x144 ct_spsram_4096x32 ct_spsram_4096x84 ct_spsram_64x108 ct_spsram_65536x128 ct_spsram_8192x32 mp_top_golden_port top_golden_port tb' -ssv -ssy  -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389  >& /dev/null  && echo Success >& simv.daidir/.elabcomReport || echo Fail >& simv.daidir/.elabcomReport; \rm -rf simv.daidir/work.lib++ simv.daidir/kdb_libs/ 
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a

@@ -1,0 +1,25 @@
+Command: /public/yifanqu/c910/smart_run/work/./simv -l run.vcs.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jun 23 09:09 2025
+	********* Init Program *********
+	********* Wipe memory to 0 *********
+	********* Read program *********
+	********* Load program to memory *********
+
+Hello Friend!
+Welcome to T-HEAD World!
+
+a is 1!
+b is 2!
+c is 0!
+!!! PASS !!!after ASM c is changed to 3!
+**********************************************
+*    simulation finished successfully        *
+**********************************************
+$finish called from file "../logical/tb/tb.v", line 273.
+$finish at simulation time            915750000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 91575000000 fs
+CPU Time:      3.220 seconds;       Data structure size:  87.9Mb
+Mon Jun 23 09:09:24 2025

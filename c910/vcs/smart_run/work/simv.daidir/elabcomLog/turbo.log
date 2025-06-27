@@ -1,0 +1,7 @@
+Command Line: /nfs/tools/softwares/synopsys/installed_new/vcs-mx/O-2018.09-SP2/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -saveLevel -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -top ct_spsram_1024x128 ct_spsram_1024x144 ct_spsram_1024x32 ct_spsram_1024x59 ct_spsram_1024x92 ct_spsram_128x104 ct_spsram_128x144 ct_spsram_16384x128 ct_spsram_2048x128 ct_spsram_2048x144 ct_spsram_2048x59 ct_spsram_2048x88 ct_spsram_256x100 ct_spsram_256x144 ct_spsram_256x52 ct_spsram_256x54 ct_spsram_256x59 ct_spsram_256x7 ct_spsram_32768x128 ct_spsram_4096x128 ct_spsram_4096x144 ct_spsram_4096x32 ct_spsram_4096x84 ct_spsram_64x108 ct_spsram_65536x128 ct_spsram_8192x32 mp_top_golden_port top_golden_port tb -ssv -ssy -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389
+uname(Linux hvg-ws-22 4.18.0-193.28.1.el8_2.x86_64 #1 SMP Thu Oct 22 00:20:22 UTC 2020 x86_64)
+[INFO] error/warning message 'C00380' has been suppressed.
+[INFO] error/warning message 'C00381' has been suppressed.
+[INFO] error/warning message 'C00388' has been suppressed.
+[INFO] error/warning message 'C00389' has been suppressed.
+au time 2.763410 1.456902 0.146776 delta 195305472 195305472 total 296439808 296439808
