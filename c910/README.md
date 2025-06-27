@@ -108,6 +108,7 @@ cd p2e/
 
 ```bash
 # View waveforms after P2E run completion
+cd c910.xvcf
 xwave -wdb c910.xvcf
 ```
 
