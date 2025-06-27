@@ -39,8 +39,6 @@ source ./setup/setup.sh
 ### 2. Build and Run Tests
 
 ```bash
-cd ./vcs/smart_run
-
 # Build a test case
 make buildcase CASE=hello_world
 
