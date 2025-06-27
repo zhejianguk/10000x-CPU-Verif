@@ -168,9 +168,10 @@ xwave -wdb c910.xvcf
    ```bash
    # Copy generated patterns
    cp ./vcs/smart_run/work/data.pat /p2e/
+   cp ./vcs/smart_run/work/inst.pat /p2e/
    
    # Run on FPGA
-   cd p2e/ && ./vcs.csh
+   cd p2e/ && ./p2e.csh
    
    # Analyze results
    xwave -wdb c910.xvcf
