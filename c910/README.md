@@ -1,25 +1,35 @@
 # C910 CPU Verification Environment
 
-A comprehensive verification framework for the C910 RISC-V processor core using VCS simulation.
+A comprehensive verification framework for the C910 RISC-V processor core supporting both software simulation and FPGA-based verification.
 
 ## Overview
 
-The C910 is a high-performance RISC-V processor core developed by T-Head (Alibaba). This environment provides:
+The C910 is a high-performance RISC-V processor core developed by T-Head (Alibaba). This verification environment provides:
 
-- VCS-based simulation and verification
+- **VCS-based simulation** - Software simulation using Synopsys VCS
+- **P2E FPGA-based verification** - Hardware acceleration using FPGA platforms
 - Comprehensive test suite (ISA, MMU, cache, system-level tests)
-- Automated build and run workflows
+- Automated build and run workflows for both environments
 - RISC-V Xuantie toolchain integration
 
 ## Prerequisites
 
+### For VCS Simulation
 - **VCS** (Synopsys Verilog Compiler Simulator) v2018.09+
 - **C910 RTL sources** (T-Head C910 RTL factory)
 - **Unix/Linux environment** with bash/csh support
 
-## Quick Start
+### For P2E FPGA Verification
+- **P2E FPGA platform** with proper hardware setup
+- **P2E toolchain** and environment
+- **TCsh shell** for P2E environment setup
+- **Xwave** waveform viewer for results analysis
 
-### 1. Setup Environment
+## Simulation Environments
+
+### VCS Software Simulation
+
+#### Setup Environment
 
 ```bash
 cd 10000x-CPU-Verif/c910
@@ -36,7 +46,7 @@ cd ../smart_run/
 source ./setup/setup.sh
 ```
 
-### 2. Build and Run Tests
+#### Build and Run Tests
 
 ```bash
 # Build a test case
@@ -47,6 +57,59 @@ make runcase CASE=hello_world SIM=vcs
 ```
 
 Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" message with PASS status.
+
+#### VCS Simulation Options
+
+```bash
+# Generate waveforms
+make runcase CASE=hello_world SIM=vcs WAVE=1
+
+# Enable coverage collection
+make runcase CASE=hello_world SIM=vcs COV=1
+
+# Verbose build output
+make buildcase CASE=hello_world VERBOSE=1
+```
+
+### P2E FPGA Verification
+
+#### Setup Environment
+
+```bash
+cd 10000x-CPU-Verif/c910/p2e
+
+# Switch to tcsh shell (required for P2E)
+tcsh
+
+# Source P2E environment
+source ./setup.csh
+```
+
+#### Prepare Test Data
+
+```bash
+# Copy generated test patterns from VCS to P2E folder
+# (Run VCS build first to generate patterns)
+cp ./vcs/smart_run/work/data.pat /p2e/
+cp ./vcs/smart_run/work/inst.pat /p2e/  # if available
+```
+
+#### Build and Deploy on FPGA
+
+```bash
+# Navigate to P2E folder
+cd p2e/
+
+# Compile and deploy design on P2E FPGA
+./vcs.csh
+```
+
+#### View Results
+
+```bash
+# View waveforms after P2E run completion
+xwave -wdb c910.xvcf
+```
 
 ## Available Test Cases
 
@@ -67,6 +130,8 @@ Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" mess
 - `coremark` - Industry-standard benchmark
 - `debug` - Debug interface verification
 
+*Note: All test cases can be run on both VCS and P2E environments*
+
 ## Directory Structure
 
 ```
@@ -79,9 +144,39 @@ Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" mess
 │   │   ├── tests/cases/         # Test source code
 │   │   └── work/                # Generated files (*.pat, *.elf, logs)
 │   └── riscv_xuantie/           # RISC-V Xuantie Toolchain
+├── p2e/                         # P2E FPGA Verification Environment
+│   ├── setup.csh               # P2E environment setup
+│   ├── vcs.csh                 # P2E build and deployment script
+│   └── [FPGA-specific files]   # P2E configuration and runtime files
 ├── doc/                         # Documentation
 └── README.md                    # This file
 ```
+
+## Verification Workflow
+
+### Typical Flow for Comprehensive Verification
+
+1. **Develop/Modify Tests**: Create or update test cases in `vcs/smart_run/tests/cases/`
+
+2. **VCS Simulation**: 
+   ```bash
+   make buildcase CASE=test_name
+   make runcase CASE=test_name SIM=vcs
+   ```
+
+3. **P2E FPGA Verification**:
+   ```bash
+   # Copy generated patterns
+   cp ./vcs/smart_run/work/data.pat /p2e/
+   
+   # Run on FPGA
+   cd p2e/ && ./vcs.csh
+   
+   # Analyze results
+   xwave -wdb c910.xvcf
+   ```
+
+4. **Results Comparison**: Compare VCS and P2E results for validation
 
 ## Advanced Usage
 
@@ -94,41 +189,46 @@ Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" mess
 
 2. Write test code (`my_test.c`) in the directory
 
-3. Build and run:
+3. Build and run on both environments:
    ```bash
+   # VCS simulation
    make buildcase CASE=my_test
    make runcase CASE=my_test SIM=vcs
+   
+   # P2E FPGA verification
+   cp ./vcs/smart_run/work/data.pat /p2e/
+   cd p2e/ && ./vcs.csh
    ```
 
-### Simulation Options
+### Performance Comparison
 
-```bash
-# Generate waveforms
-make runcase CASE=hello_world SIM=vcs WAVE=1
-
-# Enable coverage collection
-make runcase CASE=hello_world SIM=vcs COV=1
-
-# Verbose build output
-make buildcase CASE=hello_world VERBOSE=1
-```
+- **VCS**: Detailed debugging, full controllability, slower execution
+- **P2E**: Hardware-speed execution, real-time performance, limited visibility
 
 ## Troubleshooting
 
-### Common Issues
+### VCS-Specific Issues
 
 - **VCS License**: Check license server connectivity
 - **Environment**: Ensure all setup scripts are sourced correctly
 - **Build Errors**: Verify RISC-V toolchain installation
 - **Simulation**: Check logs in `work/` directory for details
 
+### P2E-Specific Issues
+
+- **FPGA Connection**: Verify P2E hardware connectivity
+- **Environment Setup**: Ensure tcsh shell and proper environment sourcing
+- **Pattern Files**: Verify data.pat and inst.pat are correctly generated and copied
+- **Waveform Issues**: Check if c910.xvcf is generated and accessible
+
 ### Debug Tips
 
-- Use `VERBOSE=1` for detailed build output
-- Check `work/*.log` files for simulation details
-- Verify test completion status and return codes
+- Use `VERBOSE=1` for detailed VCS build output
+- Check `work/*.log` files for VCS simulation details
+- For P2E, monitor FPGA status and logs during deployment
+- Compare results between VCS and P2E for validation
+- Verify test completion status and return codes in both environments
 
 ## License
 
 See `vcs/LICENSE` for licensing information.
-
