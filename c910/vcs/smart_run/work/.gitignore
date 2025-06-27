@@ -22,3 +22,5 @@ case.pat
 inst.pat
 # Source files (usually generated/temporary)
 *.c
+# Report files
+*.report
