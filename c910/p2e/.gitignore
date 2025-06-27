@@ -1,0 +1,76 @@
+# Build and synthesis output directories
+c910/p2e/
+
+# Log files
+*.log
+
+# Database files
+*.db
+
+# Report files
+*.rpt
+
+# Output files
+*.out
+*.mi
+
+# Generated Verilog files
+*_top_*.v
+*.vg
+
+# TCL scripts (generated)
+do_xpm_*.tcl
+PNR_settings.tcl
+
+# Hardware configuration files
+hw-config*.hdf
+hw-config*.json
+
+# Memory files
+MEMORY_FILES
+*.mem
+
+# Synthesis and implementation artifacts
+*.xdc
+*.itm
+*.toc
+
+# Build directories and files
+RTDB/
+STA_Reports/
+fpgaCompDir/
+vcomMemDir/
+vcomMemoryConstPropDir/
+work_lib/
+xepic_waveform/
+c910.xvcf/
+NetlistOptFC/
+
+# Instance and component files
+*_INSTANCES
+VCOMCESCGU.v
+
+# Text files (generated reports and data)
+*.txt
+!README.txt
+!*.md
+
+# Specific generated files
+.clockModuleName
+.design_info
+.part.*
+max_frequency
+linux.out
+linux_uart.out
+hyperedge.txt
+placement.txt
+
+# Shell scripts (generated)
+show_*.csh
+*.csh
+!setup.csh
+
+# XPM related files
+xpm_*.v
+xpm_*.xdc
+xpm_*.db 
