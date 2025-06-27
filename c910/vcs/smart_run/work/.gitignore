@@ -20,3 +20,5 @@ simv.daidir/*
 # Build artifacts
 case.pat
 inst.pat
+# Source files (usually generated/temporary)
+*.c
