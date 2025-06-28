@@ -74,3 +74,12 @@ show_*.csh
 xpm_*.v
 xpm_*.xdc
 xpm_*.db 
+
+*.log
+AN.DB/
+*fsdb
+csrc/*
+simv*
+work.lib++*
+run_case.report
+ucli.key
