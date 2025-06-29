@@ -13,6 +13,7 @@ c910/p2e/
 # Output files
 *.out
 *.mi
+*.csv
 
 # Generated Verilog files
 *_top_*.v
@@ -29,6 +30,7 @@ hw-config*.json
 # Memory files
 MEMORY_FILES
 *.mem
+vcom_memory.v
 
 # Synthesis and implementation artifacts
 *.xdc
@@ -83,3 +85,13 @@ simv*
 work.lib++*
 run_case.report
 ucli.key
+
+# Others
+de_*report*
+design_*_report
+dp_*
+etc/*
+high_fanout_*
+partition_report*
+self_check_partition_readable_file
+result.xedb
