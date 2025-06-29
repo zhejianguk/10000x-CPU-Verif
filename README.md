@@ -60,51 +60,45 @@ make runcase CASE=hello_world SIM=vcs
 
 Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" message with PASS status.
 
-#### VCS Simulation Options (NOT REQUIRED IN 10000X PROJECT)
-
-```bash
-# Generate waveforms
-make runcase CASE=hello_world SIM=vcs WAVE=1
-
-# Enable coverage collection
-make runcase CASE=hello_world SIM=vcs COV=1
-
-# Verbose build output
-make buildcase CASE=hello_world VERBOSE=1
-```
-
-### P2E FPGA Verification
-
-#### Setup Environment
-
-```bash
-cd 10000x-CPU-Verif/c910/p2e
-
-# Switch to tcsh shell (required for P2E)
-tcsh
-
-# Source P2E environment
-source ./setup.csh
-```
-
-#### Prepare Test Data
+#### Prepare data/inst.pats and binaries for FPGA emulation
 
 ```bash
 # Copy generated test patterns from VCS to P2E folder
 # (Run VCS build first to generate patterns)
-cp ./vcs/smart_run/work/data.pat /p2e/
-cp ./vcs/smart_run/work/inst.pat /p2e/  # if available
+cp ./vcs/smart_run/work/data.pat /p2e/rtl_tb
+cp ./vcs/smart_run/work/inst.pat /p2e/rtl_tb  
 ```
-
-#### Build and Deploy on FPGA
-
 ```bash
 # Navigate to P2E folder
 cd p2e/
 
 # Compile and deploy design on P2E FPGA
-./vcs.csh
+./vcs.csh # Generated 16 dut_ram[x].txt files
 ```
+
+
+### P2E FPGA Verification (BELOW OPERATIONS SHOULD BE DONE ON THE SEVER WITH P2E FPGAs)
+
+#### *** NOTE: Above 16 dut_ram[x] should be updated to the server with P2E FPGAs (if a different server is should) ***
+
+#### Setup Environment
+```bash
+cd 10000x-CPU-Verif/c910
+
+# Switch to tcsh shell (required for P2E)
+tcsh
+
+# Source P2E environment
+cd p2e
+source ./setup.csh
+```
+
+#### Run Emulation
+```bash
+./p2e.csh
+```
+
+
 
 #### View Results (Option 1: Waveform)
 
