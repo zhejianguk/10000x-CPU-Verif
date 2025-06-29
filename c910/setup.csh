@@ -22,3 +22,4 @@
     setenv MODIFIED_PATH /home/cyy/$CASE_NAME/modified_rtl
     setenv XRAM_PATH /home/cyy/$CASE_NAME/xaxi4_slave_emb
     setenv XAXI_RTL_HOME /home/cyy
+    setenv MAKEFLAGS -j256

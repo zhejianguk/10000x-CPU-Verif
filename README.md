@@ -29,13 +29,15 @@ The C910 is a high-performance RISC-V processor core developed by T-Head (Alibab
 
 ### VCS Software Simulation
 
-#### Setup Environment
-
+#### Setup VCS Environment (**NOT INCLUDED IN THIS REPO**)
 ```bash
-cd 10000x-CPU-Verif/c910
-
 # Setup VCS environment
 source ./env_vcs.sh
+```
+
+#### Setup C910 Environment 
+```bash
+cd 10000x-CPU-Verif/c910
 
 # Setup RTL Factory
 cd ./vcs/C910_RTL_FACTORY/
@@ -58,7 +60,7 @@ make runcase CASE=hello_world SIM=vcs
 
 Expected output: "Hello Southeast University! Welcome to 10000x CPU Verif!" message with PASS status.
 
-#### VCS Simulation Options
+#### VCS Simulation Options (NOT REQUIRED IN 10000X PROJECT)
 
 ```bash
 # Generate waveforms
@@ -104,12 +106,18 @@ cd p2e/
 ./vcs.csh
 ```
 
-#### View Results
+#### View Results (Option 1: Waveform)
 
 ```bash
 # View waveforms after P2E run completion
 cd c910.xvcf
 xwave -wdb c910.xvcf
+```
+
+#### View Results (Option 2: Logs)
+```bash
+# Since the UART is not currently added, a script can be executed for black-hack. 
+./show_uart
 ```
 
 ## Available Test Cases
