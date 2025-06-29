@@ -68,8 +68,7 @@ hyperedge.txt
 placement.txt
 
 # Shell scripts (generated)
-show_*.csh
-*.csh
+show_out.csh
 !setup.csh
 
 # XPM related files
