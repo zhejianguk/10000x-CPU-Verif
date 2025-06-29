@@ -79,7 +79,7 @@ cd p2e/
 
 ### P2E FPGA Verification (BELOW OPERATIONS SHOULD BE DONE ON THE SEVER WITH P2E FPGAs)
 
-#### *** NOTE: Above 16 dut_ram[x] should be updated to the server with P2E FPGAs (if a different server is should) ***
+#### *** NOTE: Above 16 dut_ram[x] should be updated to the server with P2E FPGAs (if a different server is used) ***
 
 #### Setup Environment
 ```bash
