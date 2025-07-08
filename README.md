@@ -89,7 +89,7 @@ cd 10000x-CPU-Verif/c910
 tcsh
 
 # Source P2E environment
-cd p2e
+cd c910
 source ./setup.csh
 ```
 
